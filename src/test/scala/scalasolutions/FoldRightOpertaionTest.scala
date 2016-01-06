@@ -19,5 +19,15 @@ class FoldRightOpertaionTest extends FunSpec with Matchers{
     it("should return the product of all the elements in the list"){
       foldRightOperation.foldRight(List(1,2,3,4), 1)((x, y) => x * y) should be(24)
     }
+
+    describe("with element in the list "){
+      it("as 0 should return 0 as the result"){
+        foldRightOperation.product(List(1,2,3,4,0,8,9)) should be(0)
+      }
+
+      it("non-zero element in the list"){
+        foldRightOperation.product(List(1,2,3,4)) should be(24)
+      }
+    }
   }
 }
